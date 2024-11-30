@@ -8,7 +8,6 @@
 @author Brandon Jones
 @author Colin MacKenzie IV
 @version 3.4.1
-
 Copyright (c) 2015-2021, Brandon Jones, Colin MacKenzie IV.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -5358,7 +5357,7 @@ self.C3_ExpressionFuncs = [
 			return () => n0.ExpInstVar();
 		},
 		() => 0.85,
-		() => 1383540000,
+		() => 2146960000,
 		() => 160,
 		() => 320,
 		() => 200,
