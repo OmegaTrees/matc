@@ -5358,7 +5358,7 @@ self.C3_ExpressionFuncs = [
 			return () => n0.ExpInstVar();
 		},
 		() => 0.85,
-		() => Math.floor(Math.random() * (15000 - 10000 + 1)) + 1191380000,
+		() => 1383540000,
 		() => 160,
 		() => 320,
 		() => 200,
