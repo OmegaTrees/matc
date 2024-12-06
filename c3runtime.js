@@ -5358,7 +5358,7 @@ self.C3_ExpressionFuncs = [
 			return () => n0.ExpInstVar();
 		},
 		() => 0.85,
-		() => 2055601084,
+		() => 120,
 		() => 160,
 		() => 320,
 		() => 200,
@@ -5886,38 +5886,10 @@ self.C3_ExpressionFuncs = [
 		() => "GetURL",
 		p => {
 			const n0 = p._GetNode(0);
-			return () => n0.ExpObject("CheckStatusURL");
-		},
-		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpObject("SendScoreURL");
-		},
-		p => {
-			const n0 = p._GetNode(0);
 			return () => n0.ExpObject("leaderBoardURL");
-		},
-		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpObject("RedirectURL");
-		},
-		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpObject("interval");
-		},
-		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpObject("key");
-		},
-		() => "CheckUser",
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			const v1 = p._GetNode(1).GetVar();
-			const v2 = p._GetNode(2).GetVar();
-			return () => ((((v0.GetValue() + "/new-game-check-user-status/") + v1.GetValue()) + "/") + v2.GetValue());
-		},
-		() => "LEGIT USER",
-		() => "FAIL TO LOAD DATA"
+		}
 ];
 
 
 }
+
