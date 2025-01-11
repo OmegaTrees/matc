@@ -15,7 +15,7 @@ var mole_arr = [
 	{src:'assets/mole_03.png', hurtSrc:'assets/mole_hurt.png', score:100, hit:1, bomb:false},
 	{src:'assets/mole_04.png', hurtSrc:'assets/mole_hurt.png', score:500, hit:1, bomb:false},
 	{src:'assets/mole_05.png', hurtSrc:'assets/mole_hurt.png', score:200, hit:2, bomb:false},
-	{src:'assets/mole_06.png', hurtSrc:'assets/mole_hurt.png', score:1000, hit:1, bomb:false},
+	{src:'assets/mole_06.png', hurtSrc:'assets/mole_hurt.png', score:100, hit:1, bomb:false},
 	{src:'assets/bomb_01.png', hurtSrc:'assets/bomb_explode.png', score:0, hit:1, bomb:true},
 	{src:'assets/bomb_02.png', hurtSrc:'assets/bomb_explode.png', score:0, hit:1, bomb:true},
 ];
@@ -81,7 +81,7 @@ var gameSettings = {
 	],
 	life:10,
 	timerEnable:true,
-	timer:90000
+	timer:300000
 }
 
 //game text display
