@@ -10,12 +10,12 @@
 
 //moles array
 var mole_arr = [
-	{src:'assets/mole_01.png', hurtSrc:'assets/mole_hurt.png', score:500, hit:1, bomb:false},
-	{src:'assets/mole_02.png', hurtSrc:'assets/mole_hurt.png', score:400, hit:1, bomb:false},
-	{src:'assets/mole_03.png', hurtSrc:'assets/mole_hurt.png', score:300, hit:1, bomb:false},
-	{src:'assets/mole_04.png', hurtSrc:'assets/mole_hurt.png', score:200, hit:1, bomb:false},
+	{src:'assets/mole_01.png', hurtSrc:'assets/mole_hurt.png', score:400, hit:1, bomb:false},
+	{src:'assets/mole_02.png', hurtSrc:'assets/mole_hurt.png', score:120, hit:1, bomb:false},
+	{src:'assets/mole_03.png', hurtSrc:'assets/mole_hurt.png', score:100, hit:1, bomb:false},
+	{src:'assets/mole_04.png', hurtSrc:'assets/mole_hurt.png', score:500, hit:1, bomb:false},
 	{src:'assets/mole_05.png', hurtSrc:'assets/mole_hurt.png', score:200, hit:2, bomb:false},
-	{src:'assets/mole_06.png', hurtSrc:'assets/mole_hurt.png', score:600, hit:1, bomb:false},
+	{src:'assets/mole_06.png', hurtSrc:'assets/mole_hurt.png', score:1000, hit:1, bomb:false},
 	{src:'assets/bomb_01.png', hurtSrc:'assets/bomb_explode.png', score:0, hit:1, bomb:true},
 	{src:'assets/bomb_02.png', hurtSrc:'assets/bomb_explode.png', score:0, hit:1, bomb:true},
 ];
@@ -24,7 +24,7 @@ var mole_arr = [
 var gameSettings = {
 	levels:[
 		{
-			target:100,
+			target:500,
 			hole:[0,1,2],
 			mole:3,
 			moleType:[0,1],
@@ -79,9 +79,9 @@ var gameSettings = {
 			turnSwitch:[5,8]
 		},
 	],
-	life:1,
+	life:10,
 	timerEnable:true,
-	timer:120000
+	timer:90000
 }
 
 //game text display
@@ -957,4 +957,4 @@ function share(action){
 	}
 	
 	window.open(shareurl, "_self");
-      }
+}
