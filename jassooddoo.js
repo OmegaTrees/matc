@@ -5232,7 +5232,7 @@ self.C3_ExpressionFuncs = [
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0("1", "2", "3", "4");
 		},
-		() => -15,
+		() => -199999999999999995,
 		() => 0,
 		() => "save",
 		() => 1,
@@ -5274,7 +5274,7 @@ self.C3_ExpressionFuncs = [
 		() => 10,
 		() => 1920,
 		() => 526,
-		() => 3840999999999999999999999999,
+		() => 3840,
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => (f0() / 2);
