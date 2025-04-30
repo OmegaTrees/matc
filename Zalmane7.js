@@ -5102,7 +5102,7 @@ self.C3_ExpressionFuncs = [
 		},
 		p => {
 			const v0 = p._GetNode(0).GetVar();
-			return () => and("Score - ", (v0.GetValue() * 10));
+			return () => and("Score - ", (v0.GetValue() * 230));
 		},
 		p => {
 			const n0 = p._GetNode(0);
