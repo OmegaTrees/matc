@@ -9,16 +9,24 @@
  */
 
 //moles array
+// Define the array first
 var mole_arr = [
-	{src:'assets/mole_01.png', hurtSrc:'assets/mole_hurt.png', score:100, hit:1, bomb:false},
-	{src:'assets/mole_02.png', hurtSrc:'assets/mole_hurt.png', score:100, hit:1, bomb:false},
-	{src:'assets/mole_03.png', hurtSrc:'assets/mole_hurt.png', score:100, hit:1, bomb:false},
-	{src:'assets/mole_04.png', hurtSrc:'assets/mole_hurt.png', score:100, hit:1, bomb:false},
-	{src:'assets/mole_05.png', hurtSrc:'assets/mole_hurt.png', score:200, hit:2, bomb:false},
-	{src:'assets/mole_06.png', hurtSrc:'assets/mole_hurt.png', score:100, hit:1, bomb:false},
-	{src:'assets/bomb_01.png', hurtSrc:'assets/bomb_explode.png', score:0, hit:1, bomb:true},
-	{src:'assets/bomb_02.png', hurtSrc:'assets/bomb_explode.png', score:0, hit:1, bomb:true},
+ {src:'assets/mole_01.png', hurtSrc:'assets/mole_hurt.png', score:0, hit:1, bomb:false},
+ {src:'assets/mole_02.png', hurtSrc:'assets/mole_hurt.png', score:0, hit:1, bomb:false},
+ {src:'assets/mole_03.png', hurtSrc:'assets/mole_hurt.png', score:0, hit:1, bomb:false},
+ {src:'assets/mole_04.png', hurtSrc:'assets/mole_hurt.png', score:0, hit:1, bomb:false},
+ {src:'assets/mole_05.png', hurtSrc:'assets/mole_hurt.png', score:0, hit:1, bomb:false},
+ {src:'assets/mole_06.png', hurtSrc:'assets/mole_hurt.png', score:0, hit:1, bomb:false},
+ {src:'assets/bomb_01.png', hurtSrc:'assets/bomb_explode.png', score:0, hit:1, bomb:true},
+ {src:'assets/bomb_02.png', hurtSrc:'assets/bomb_explode.png', score:0, hit:1, bomb:true},
 ];
+
+// Then assign random scores to non-bomb moles
+for(var i=0; i<mole_arr.length; i++) {
+    if(!mole_arr[i].bomb) {
+        mole_arr[i].score = 50 + Math.floor(Math.random() * 450); // Random score between 50-500
+    }
+}
 
 //game settings
 var gameSettings = {
@@ -571,22 +579,26 @@ function createMole(index){
 	$.mole['hitContainer'+index].y = 0;
 	$.mole['hitContainer'+index].removeAllChildren();
 
-	var randomMole = Math.floor(Math.random()*gameSettings.levels[gameData.levelNum].moleType.length);
-	randomMole = gameSettings.levels[gameData.levelNum].moleType[randomMole];
+	// ... existing code ...
+var randomMole = Math.floor(Math.random()*gameSettings.levels[gameData.levelNum].moleType.length);
+randomMole = gameSettings.levels[gameData.levelNum].moleType[randomMole];
 
-	$.mole['moleHurt'+index] = new createjs.Bitmap(loader.getResult('itemMoleHurt'+randomMole));
-	centerReg($.mole['moleHurt'+index]);
-	$.mole['moleHurt'+index].regY = $.mole['moleHurt'+index].oriH = $.mole['moleHurt'+index].image.naturalHeight;
-	$.mole['moleHurt'+index].visible = false;
+// Always use mole type 0 for everything
+var standardMoleType = 0;  // Change this to select which mole to standardize on
 
-	$.mole['mole'+index] = new createjs.Bitmap(loader.getResult('itemMole'+randomMole));
-	centerReg($.mole['mole'+index]);
-	$.mole['mole'+index].regY = $.mole['mole'+index].oriH = $.mole['mole'+index].image.naturalHeight;
-	$.mole['mole'+index].y = $.mole['mole'+index].oriH;
-	$.mole['mole'+index].index = index;
-	$.mole['mole'+index].score = mole_arr[randomMole].score;
-	$.mole['mole'+index].hit = mole_arr[randomMole].hit;
-	$.mole['mole'+index].bomb = mole_arr[randomMole].bomb;
+     $.mole['moleHurt'+index] = new createjs.Bitmap(loader.getResult('itemMoleHurt'+standardMoleType));
+     centerReg($.mole['moleHurt'+index]);
+    $.mole['moleHurt'+index].regY = $.mole['moleHurt'+index].oriH = $.mole['moleHurt'+index].image.naturalHeight;
+    $.mole['moleHurt'+index].visible = false;
+
+    $.mole['mole'+index] = new createjs.Bitmap(loader.getResult('itemMole'+standardMoleType));
+    centerReg($.mole['mole'+index]);
+    $.mole['mole'+index].regY = $.mole['mole'+index].oriH = $.mole['mole'+index].image.naturalHeight;
+    $.mole['mole'+index].y = $.mole['mole'+index].oriH;
+    $.mole['mole'+index].index = index;
+    $.mole['mole'+index].score = mole_arr[standardMoleType].score;
+    $.mole['mole'+index].hit = mole_arr[standardMoleType].hit;
+    $.mole['mole'+index].bomb = mole_arr[standardMoleType].bomb;
 	$.mole['mole'+index].active = true;
 	var delayNum = randomIntFromInterval(gameData.moleDelay[0],gameData.moleDelay[1]) * .1;
 
