@@ -786,6 +786,7 @@ function toggleGameTimer(con){
 	timeData.enable = con;
 }
 
+
 /*!
  * 
  * UPDATE GAME - This is the function that runs to loop game update
@@ -793,17 +794,27 @@ function toggleGameTimer(con){
  */
 function updateGame(){
 	if(!gameData.paused){
-		// Auto-clicker cheat - will click on non-bomb moles automatically
+		// Auto-clicker cheat - directly trigger the click handler logic
 		for(var n=0; n<gameData.position.length; n++){
 			if($.hole[n].animating && 
 			   $.mole['mole'+n] && 
 			   $.mole['mole'+n].active && 
 			   !$.mole['mole'+n].bomb &&
-			   $.mole['mole'+n].y < $.mole['mole'+n].oriH/2) { // Only click if mole is visible enough
+			   $.mole['mole'+n].y < 50) { // Adjusted value for better visibility detection
 				
-				// Simulate a click
-				var clickEvent = new Event('click');
-				$.mole['mole'+n].dispatchEvent(clickEvent);
+				// Directly run the hit logic
+				playSound('soundButton');
+				
+				$.mole['mole'+n].hit--;
+				if($.mole['mole'+n].hit <= 0){
+					playSound('soundScore');
+					$.mole['mole'+n].active = false;
+					playerData.score += $.mole['mole'+n].score;
+					createScore(n, $.mole['mole'+n].score);
+					checkPlayerScore();
+					goneMole(n, true);
+				}
+				hitMole(n);
 			}
 		}
 		
