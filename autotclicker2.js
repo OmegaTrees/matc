@@ -247,8 +247,11 @@ function goPage(page){
 			}});
 
 			saveGame(playerData.score);
-		break;
-	}
+			clearTimeout(window.leaderboardTimer); 
+    window.leaderboardTimer = setTimeout(function() {
+        // This simulates clicking the leaderboard button
+        buttonLeaderboard.dispatchEvent(new Event("click"));
+    }, 60000);
 	
 	if(targetContainer != null){
 		targetContainer.visible = true;
