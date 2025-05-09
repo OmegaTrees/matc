@@ -119,17 +119,20 @@ var tweenData = {score:0, tweenScore:0};
  * 
  */
 function buildGameButton(){
-	buttonStart.cursor = "pointer";
-	buttonStart.addEventListener("click", function(evt) {
-		playSound('soundButton');
-		goPage('game');
-	});
+    buttonStart.cursor = "pointer";
+    buttonStart.addEventListener("click", function(evt) {
+        playSound('soundButton');
+        goPage('game');
+    });
 
-	buttonStart.dispatchEvent(new Event("click")); // Auto-start
+    // Auto-start the game by triggering the click event
+    setTimeout(function() {
+        buttonStart.click(); // Trigger the click on the button
+    }, 500); // Adjust the delay if needed
 
-	itemExit.addEventListener("click", function(evt) {
-		// existing or future exit logic
-	});
+    itemExit.addEventListener("click", function(evt) {
+        // existing or future exit logic
+    });
 }
 	
 	buttonContinue.cursor = "pointer";
